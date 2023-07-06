@@ -12,7 +12,7 @@ class Game {
     this.height = height;
     this.board = [];
     this.currPlayer = 1;
-    //TODO: double check this
+
     this.makeBoard();
     this.makeHtmlBoard();
   }
@@ -33,11 +33,11 @@ class Game {
 
   makeHtmlBoard() {
     const board = document.getElementById('board');  //TODO: ask about variable name for board
+    board.innerHTML= "";
 
     // make column tops (clickable area for adding a piece to that column)
     const top = document.createElement('tr');
     top.setAttribute('id', 'column-top');
-    //TODO: check execution context
     top.addEventListener('click', this.handleClick.bind(this));
 
     for (let x = 0; x < this.width; x++) {
@@ -78,7 +78,7 @@ class Game {
   /** placeInTable: update DOM to place piece into HTML table of board */
 
   placeInTable(y, x) {
-    debugger;
+    //debugger;
     const piece = document.createElement('div');
     piece.classList.add('piece');
     piece.classList.add(`p${this.currPlayer}`);
@@ -165,6 +165,11 @@ class Game {
 
 new Game(6,7);
 
+
+
+
+
+//=================================OLD CODE BELOW FOR REFERENCE
 
 //const WIDTH = 7;
 //const HEIGHT = 6;
