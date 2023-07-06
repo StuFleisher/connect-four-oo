@@ -12,6 +12,9 @@ class Game {
     this.height = height;
     this.board = [];
     this.currPlayer = 1;
+    //TODO: double check this
+    this.makeBoard();
+    this.makeHtmlBoard();
   }
 
 
@@ -21,7 +24,7 @@ class Game {
 
   makeBoard() {
     for (let y = 0; y < this.height; y++) {
-      board.push(Array.from({ length: this.width }));
+      this.board.push(Array.from({ length: this.width }));
     }
   }
 
@@ -35,7 +38,7 @@ class Game {
     const top = document.createElement('tr');
     top.setAttribute('id', 'column-top');
     //TODO: check execution context
-    top.addEventListener('click', handleClick);
+    top.addEventListener('click', this.handleClick.bind(this));
 
     for (let x = 0; x < this.width; x++) {
       const headCell = document.createElement('td');
@@ -158,6 +161,9 @@ class Game {
     }
   }
 }
+
+new Game(6,7);
+
 
 //const WIDTH = 7;
 //const HEIGHT = 6;
@@ -303,5 +309,4 @@ function findSpotForCol(x) {
 //   }
 // }
 
-makeBoard();
-makeHtmlBoard();
+
