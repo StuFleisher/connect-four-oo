@@ -108,7 +108,7 @@ class Game {
     }
 
     // place piece in board and add to HTML table
-    board[y][x] = this.currPlayer;
+    this.board[y][x] = this.currPlayer;
     this.placeInTable(y, x);
 
     // check for win
