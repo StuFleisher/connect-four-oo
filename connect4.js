@@ -6,6 +6,8 @@
  * board fills (tie)
  */
 
+//class docstrings- what to pass to contructor, what are the properties and examples
+
 class Game {
   constructor(width, height) {
     this.width = width;
@@ -33,7 +35,7 @@ class Game {
 
   makeHtmlBoard() {
     const board = document.getElementById('board');  //TODO: ask about variable name for board
-    board.innerHTML= "";
+    board.innerHTML = "";
 
     // make column tops (clickable area for adding a piece to that column)
     const top = document.createElement('tr');
@@ -155,7 +157,11 @@ class Game {
         const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
 
         // find winner (only checking each win-possibility as needed)
-        if (_win.call(this, horiz) || _win.call(this, vert) || _win.call(this, diagDR) || _win.call(this, diagDL)) {
+        if (_win.call(this, horiz) ||
+          _win.call(this, vert) ||
+          _win.call(this, diagDR) ||
+          _win.call(this, diagDL)
+        ) {
           return true;
         }
       }
@@ -163,7 +169,7 @@ class Game {
   }
 }
 
-new Game(6,7);
+new Game(6, 7);
 
 
 
